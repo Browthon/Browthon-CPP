@@ -1,11 +1,13 @@
-#include <Core/Application.hpp>
+#include <QApplication>
+
+#include "Browser.hpp"
 
 int main(int argc, char** argv)
 {
-    auto app = Bn::Application(argc, argv);
-    if (app.isClosing())
-    {
-        return 0;
-    }
-    return app.exec();
+    QApplication a(argc, argv);
+
+    Bn::MainWindow* main = new Bn::MainWindow();
+    main->show();
+
+    return a.exec();
 }

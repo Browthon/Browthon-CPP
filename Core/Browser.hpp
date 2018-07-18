@@ -13,6 +13,7 @@ namespace Bn
     {
     public:
         MainWindow();
+        ~MainWindow();
         QWidget* mainWidget {nullptr};
     };
 }

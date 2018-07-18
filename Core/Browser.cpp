@@ -9,7 +9,11 @@ namespace Bn
     {
         MainWindow::mainWidget = new MainWidget(this);
         MainWindow::setCentralWidget(MainWindow::mainWidget);
-        MainWindow::show();
+    }
+
+    MainWindow::~MainWindow()
+    {
+        delete MainWindow::mainWidget;
     }
 
 }
