@@ -11,7 +11,6 @@ namespace Bn
         this->setTabPosition(QTabWidget::North);
         this->setMovable(true);
         this->addTab(this->parent->view, "Youtube");
-        this->parent->urlInput->setUrl();
         this->parent->view->show();
     }
 
@@ -23,11 +22,23 @@ namespace Bn
 
     void TabWidget::addView()
     {
-        WebView* tab = new WebView(this->parent);
+        auto tab = new WebView(this->parent);
         this->addTab(tab, "Youtube");
         tab->show();
         this->setCurrentWidget(tab);
     }
 
-
+    void TabWidget::setTitle()
+    {
+        QString title;
+        if (this->parent->view->title().size() >= 13)
+        {
+            title = this->parent->view->title().mid(0,9)+"...";
+        }
+        else
+        {
+            title = this->parent->view->title();
+        }
+        this->setTabText(this->currentIndex(), title);
+    }
 }

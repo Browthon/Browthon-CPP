@@ -12,13 +12,14 @@ namespace Bn
     MainWidget::MainWidget(QWidget* parent = nullptr) :
     QWidget(parent)
     {
-        QGridLayout* layout = new QGridLayout();
+        auto layout = new QGridLayout();
 
         view = new WebView(this);
-        urlInput = new UrlInput(this);
         tabWidget = new TabWidget(this);
+        urlInput = new UrlInput(this);
         QPushButton* addTabButton = new QPushButton("+", this);
 
+        view->createConnection();
         connect(urlInput, SIGNAL(returnPressed()), urlInput, SLOT(enterUrl()));
         connect(tabWidget, &TabWidget::currentChanged, tabWidget, &TabWidget::changeTab);
         connect(addTabButton, &QPushButton::clicked, tabWidget, &TabWidget::addView);

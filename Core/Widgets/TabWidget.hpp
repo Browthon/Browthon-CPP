@@ -13,6 +13,7 @@ namespace Bn
         TabWidget(MainWidget* parent);
         void changeTab();
         void addView();
+        void setTitle();
     };
 }
 
