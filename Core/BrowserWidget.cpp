@@ -1,5 +1,7 @@
 #include "BrowserWidget.hpp"
+
 #include "Widgets/WebView.hpp"
+#include "Widgets/UrlInput.hpp"
 
 #include <QGridLayout>
 
@@ -9,8 +11,18 @@ namespace Bn
     QWidget(parent)
     {
         QGridLayout* layout = new QGridLayout();
-        WebView* view = new WebView(this);
-        layout->addWidget(view, 1, 1);
+
+        view = new WebView(this);
+        urlInput = new UrlInput(this);
+        connect(urlInput, SIGNAL(returnPressed()), urlInput, SLOT(enterUrl()));
+
+        layout->addWidget(urlInput, 1, 2);
+
         this->setLayout(layout);
+    }
+
+    void MainWidget::setView(WebView *view)
+    {
+        this->view = view;
     }
 }
