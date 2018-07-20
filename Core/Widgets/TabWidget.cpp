@@ -10,7 +10,7 @@ namespace Bn
         TabWidget::parent = parent;
         this->setTabPosition(QTabWidget::North);
         this->setMovable(true);
-        this->addTab(this->parent->view, "Youtube");
+        this->addTab(this->parent->view, "Browthon");
         this->parent->view->show();
     }
 

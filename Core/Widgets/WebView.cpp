@@ -11,7 +11,7 @@ namespace Bn
         this->parent = parent;
         WebPage* page = new WebPage(this);
         this->setPage(page);
-        this->load(QUrl("http://youtube.com"));
+        this->load(QUrl("http://pastagames.fr.nf/browthon"));
     }
 
     void WebView::createConnection()
