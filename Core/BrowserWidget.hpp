@@ -2,6 +2,7 @@
 #define BROWTHON_APP_MAINWIDGET_H
 
 #include <QWidget>
+#include <QPushButton>
 
 namespace Bn
 {
@@ -12,11 +13,16 @@ namespace Bn
     class MainWidget : public QWidget
     {
     public:
+        QWidget* parent;
         MainWidget(QWidget* parent);
         WebView* view;
         UrlInput* urlInput;
         TabWidget* tabWidget;
+        QPushButton* backButton;
+        QPushButton* reloadButton;
+        QPushButton* forwardButton;
         void setView(WebView* view);
+        void showHome();
     };
 }
 

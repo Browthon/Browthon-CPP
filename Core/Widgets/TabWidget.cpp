@@ -16,8 +16,16 @@ namespace Bn
 
     void TabWidget::changeTab()
     {
-        this->parent->setView(static_cast<WebView*>(this->currentWidget()));
+        WebView* viewTemp = dynamic_cast<WebView*>(this->currentWidget());
+        this->parent->setView(viewTemp);
+        viewTemp->createConnection();
         this->parent->urlInput->setUrl();
+        this->parent->backButton->disconnect();
+        this->parent->reloadButton->disconnect();
+        this->parent->forwardButton->disconnect();
+        connect(this->parent->backButton, &QPushButton::clicked, viewTemp, &WebView::back);
+        connect(this->parent->reloadButton, &QPushButton::clicked, viewTemp, &WebView::reload);
+        connect(this->parent->forwardButton, &QPushButton::clicked, viewTemp, &WebView::forward);
     }
 
     void TabWidget::addView()
@@ -26,6 +34,18 @@ namespace Bn
         this->addTab(tab, "Youtube");
         tab->show();
         this->setCurrentWidget(tab);
+    }
+
+    void TabWidget::deleteView()
+    {
+        if (this->count() == 1)
+        {
+            this->parent->parent->close();
+        }
+        else
+        {
+            this->removeTab(this->currentIndex());
+        }
     }
 
     void TabWidget::setTitle()
