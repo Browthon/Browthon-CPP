@@ -12,10 +12,22 @@ namespace Bn
 
     void UrlInput::enterUrl()
     {
-        this->parent->view->load(QUrl(this->text()));
+        auto urlTemp = this->text();
+        if (!((urlTemp.contains("http://") or urlTemp.contains("https://"))))
+        {
+            if (urlTemp.contains("."))
+            {
+                urlTemp = QString("http://").append(urlTemp);
+            }
+            else
+            {
+                urlTemp = QString("https://www.google.fr/?gws_rd=ssl#q=").append(urlTemp);
+            }
+        }
+        this->parent->view->load(QUrl(urlTemp));
     }
 
-    void UrlInput::enterUrl(char* url)
+    void UrlInput::enterUrl(QString url)
     {
         this->parent->view->load(QUrl(url));
     }

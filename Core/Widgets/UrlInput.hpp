@@ -14,7 +14,7 @@ namespace Bn
     public:
         MainWidget* parent {nullptr};
         UrlInput(MainWidget* parent);
-        void enterUrl(char* url);
+        void enterUrl(QString url);
         void setUrl();
     };
 }
