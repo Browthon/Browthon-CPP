@@ -50,6 +50,7 @@ namespace Bn
 
     void TabWidget::setTitle()
     {
+        this->parent->parent->setWindowTitle(this->parent->view->title().append(" - Browthon"));
         QString title;
         if (this->parent->view->title().size() >= 13)
         {
