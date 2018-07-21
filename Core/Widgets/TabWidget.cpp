@@ -16,7 +16,7 @@ namespace Bn
 
     void TabWidget::changeTab()
     {
-        WebView* viewTemp = dynamic_cast<WebView*>(this->currentWidget());
+        auto viewTemp = dynamic_cast<WebView*>(this->currentWidget());
         this->parent->setView(viewTemp);
         viewTemp->createConnection();
         this->parent->urlInput->setUrl();

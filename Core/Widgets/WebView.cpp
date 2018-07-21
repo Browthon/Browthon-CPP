@@ -9,7 +9,7 @@ namespace Bn
     QWebEngineView(parent)
     {
         this->parent = parent;
-        WebPage* page = new WebPage(this);
+        auto page = new WebPage(this);
         this->setPage(page);
         this->load(QUrl("http://pastagames.fr.nf/browthon"));
     }
