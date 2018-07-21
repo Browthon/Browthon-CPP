@@ -10,7 +10,7 @@ if(GNU)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 endif()
 
-set(SOURCE_FILES main.cpp Core/Browser.hpp Core/Browser.cpp Core/BrowserWidget.hpp Core/BrowserWidget.cpp Core/Widgets/WebPage.hpp Core/Widgets/WebPage.cpp Core/Widgets/WebView.hpp Core/Widgets/WebView.cpp Core/Widgets/UrlInput.hpp Core/Widgets/UrlInput.cpp Core/Widgets/TabWidget.hpp Core/Widgets/TabWidget.cpp)
+set(SOURCE_FILES main.cpp Core/Browser.hpp Core/Browser.cpp Core/BrowserWidget.hpp Core/BrowserWidget.cpp Core/Widgets/WebPage.hpp Core/Widgets/WebPage.cpp Core/Widgets/WebView.hpp Core/Widgets/WebView.cpp Core/Widgets/UrlInput.hpp Core/Widgets/UrlInput.cpp Core/Widgets/TabWidget.hpp Core/Widgets/TabWidget.cpp Core/Utils/WebHitTestResult.hpp Core/Utils/WebHitTestResult.cpp)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 

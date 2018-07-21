@@ -3,6 +3,7 @@
 
 #include <QWebEngineView>
 #include "../BrowserWidget.hpp"
+#include "WebPage.hpp"
 
 namespace Bn
 {
@@ -11,8 +12,10 @@ namespace Bn
     public:
         WebView(MainWidget* parent);
         MainWidget* parent;
-        QWebEnginePage* page;
+        WebPage* page;
         void createConnection();
+        bool event(QEvent* event);
+        bool eventFilter(QObject* watched, QEvent* event);
     };
 }
 

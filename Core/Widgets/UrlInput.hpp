@@ -16,6 +16,7 @@ namespace Bn
         UrlInput(MainWidget* parent);
         void enterUrl(QString url);
         void setUrl();
+        void enterUrlGiven(QString url);
     };
 }
 

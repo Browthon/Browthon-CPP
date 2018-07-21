@@ -23,6 +23,7 @@ namespace Bn
         QPushButton* forwardButton;
         void setView(WebView* view);
         void showHome();
+        void createTabWithUrl(QString url);
     };
 }
 

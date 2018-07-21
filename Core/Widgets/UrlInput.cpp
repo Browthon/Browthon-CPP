@@ -13,7 +13,7 @@ namespace Bn
     void UrlInput::enterUrl()
     {
         auto urlTemp = this->text();
-        if (!((urlTemp.contains("http://") or urlTemp.contains("https://"))))
+        if (!(urlTemp.contains("http://") or urlTemp.contains("https://")))
         {
             if (urlTemp.contains("."))
             {
@@ -35,5 +35,15 @@ namespace Bn
     void UrlInput::setUrl()
     {
         this->setText(this->parent->view->url().toString());
+    }
+
+    void UrlInput::enterUrlGiven(QString url)
+    {
+        auto urlT = url;
+        if(!(urlT.contains("https://") or urlT.contains("https://")))
+        {
+            urlT = QString("http://").append(urlT);
+        }
+        this->parent->view->load(QUrl(urlT));
     }
 }

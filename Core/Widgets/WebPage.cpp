@@ -1,8 +1,11 @@
 #include "WebPage.hpp"
 #include "WebView.hpp"
+#include "../Utils/WebHitTestResult.hpp"
 
 #include <QAction>
 #include <QWebEngineView>
+#include <QEventLoop>
+#include <QTimer>
 
 namespace Bn
 {
@@ -38,5 +41,35 @@ namespace Bn
     void WebPage::exitFullScreen()
     {
         this->triggerAction(this->ExitFullScreen);
+    }
+
+    WebHitTestResult* WebPage::hitTestContent(QPoint pos)
+    {
+        return new WebHitTestResult(this, pos);
+    }
+
+    QPointF WebPage::mapToViewport(QPoint pos)
+    {
+        return QPointF(pos.x(), pos.y());
+    }
+
+    QVariant WebPage::executeJavaScript(const QString& scriptSrc, quint32 worldId, int timeout)
+    {
+        QPointer<QEventLoop> loop{new QEventLoop};
+        QVariant result{};
+        QTimer::singleShot(timeout, loop.data(), &QEventLoop::quit);
+
+        this->runJavaScript(scriptSrc, worldId, [loop, &result](const QVariant& res)
+        {
+            if (loop && loop->isRunning()) {
+                result = res;
+                loop->quit();
+            }
+        });
+
+        loop->exec();
+        delete loop;
+
+        return result;
     }
 }

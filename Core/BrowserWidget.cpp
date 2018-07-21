@@ -59,4 +59,13 @@ namespace Bn
     {
         this->urlInput->enterUrl("http://pastagames.fr.nf/browthon");
     }
+
+    void MainWidget::createTabWithUrl(QString url)
+    {
+        auto tab = new WebView(this);
+        this->tabWidget->addTab(tab, "Browthon");
+        tab->show();
+        this->tabWidget->setCurrentWidget(tab);
+        this->urlInput->enterUrlGiven(url);
+    }
 }
