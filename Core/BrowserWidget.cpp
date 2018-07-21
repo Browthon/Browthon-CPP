@@ -6,6 +6,7 @@
 
 #include <QGridLayout>
 #include <QPushButton>
+#include <QWebEngineSettings>
 
 namespace Bn
 {
@@ -34,6 +35,8 @@ namespace Bn
         connect(reloadButton, &QPushButton::clicked, view, &WebView::reload);
         connect(forwardButton, &QPushButton::clicked, view, &WebView::forward);
         connect(homeButton, &QPushButton::clicked, this, &MainWidget::showHome);
+
+        QWebEngineSettings::globalSettings()->setAttribute(QWebEngineSettings::FullScreenSupportEnabled, true);
 
         layout->addWidget(backButton, 1, 1);
         layout->addWidget(reloadButton, 1, 2);
