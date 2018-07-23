@@ -9,10 +9,10 @@
 
 namespace Bn
 {
-    WebPage::WebPage(QWidget* parent = nullptr):
+    WebPage::WebPage(WebView* parent) :
     QWebEnginePage(parent)
     {
-        this->view = dynamic_cast<WebView*>(parent);
+		this->view = parent;
         connect(this, &WebPage::fullScreenRequested, this, &WebPage::createFullScreen);
     }
 
