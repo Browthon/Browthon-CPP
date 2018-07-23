@@ -54,7 +54,7 @@ namespace Bn
                 if(clickedUrl != baseUrl && !(clickedUrl.isEmpty()))
                 {
                     QString result;
-                    if(clickedUrl.contains("http://") or clickedUrl.contains("https://"))
+                    if(clickedUrl.contains("http://") || clickedUrl.contains("https://"))
                     {
                         result = clickedUrl;
                     }
