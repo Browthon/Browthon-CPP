@@ -40,7 +40,7 @@ namespace Bn
     void UrlInput::enterUrlGiven(QString url)
     {
         auto urlT = url;
-        if(!(urlT.contains("https://") || urlT.contains("https://")))
+        if(!(urlT.contains("http://") || urlT.contains("https://")))
         {
             urlT = QString("http://").append(urlT);
         }
