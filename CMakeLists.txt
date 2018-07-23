@@ -13,6 +13,9 @@ endif()
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+# user config config file
+include(user-config.cmake OPTIONAL)
+
 file(
         GLOB_RECURSE
         SOURCE_FILES
