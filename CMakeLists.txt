@@ -19,8 +19,8 @@ include(user-config.cmake OPTIONAL)
 file(
         GLOB_RECURSE
         SOURCE_FILES
-        main.cpp \
-        Core/*.hpp \
+        main.cpp 
+        Core/*.hpp 
         Core/*.cpp
 )
 
