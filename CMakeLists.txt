@@ -13,9 +13,6 @@ endif()
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-# user config config file
-include(user-config.cmake OPTIONAL)
-
 file(
         GLOB_RECURSE
         SOURCE_FILES
@@ -29,6 +26,9 @@ file(
         QRC_FILES
         *.qrc
 )
+
+# user config config file
+include(user-config.cmake OPTIONAL)
 
 find_package(Qt5Widgets 5.8 REQUIRED)
 find_package(Qt5WebEngine 5.8 REQUIRED)
