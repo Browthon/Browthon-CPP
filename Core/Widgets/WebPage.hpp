@@ -14,7 +14,7 @@ namespace Bn
     class WebPage : public QWebEnginePage
     {
     public:
-        WebPage(QWidget* parent);
+        WebPage(WebView* parent);
         WebView* view;
         QWebEngineView* fullView;
         void createFullScreen(QWebEngineFullScreenRequest request);

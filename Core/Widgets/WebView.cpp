@@ -14,9 +14,14 @@ namespace Bn
     QWebEngineView(parent)
     {
         this->parent = parent;
-        auto page = new WebPage(this);
+        page = new WebPage(this);
         this->setPage(page);
         this->load(QUrl("http://pastagames.fr.nf/browthon"));
+
+		installEventFilter(this);
+
+		if (parentWidget())
+			parentWidget()->installEventFilter(this);
     }
 
     void WebView::createConnection()
