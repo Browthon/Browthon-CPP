@@ -17,7 +17,7 @@ namespace Bn
         {
             if (urlTemp.contains("."))
             {
-                urlTemp = QString("http://").append(urlTemp);
+                urlTemp = QString("https://").append(urlTemp);
             }
             else
             {
@@ -42,7 +42,7 @@ namespace Bn
         auto urlT = url;
         if(!(urlT.contains("http://") || urlT.contains("https://")))
         {
-            urlT = QString("http://").append(urlT);
+            urlT = QString("https://").append(urlT);
         }
         this->parent->view->load(QUrl(urlT));
     }
