@@ -41,7 +41,10 @@ namespace Bn
             {
                 widget->installEventFilter(this);
             }
-            return true;
+        }
+        if (event->type() == QEvent::ParentChange && parentWidget())
+        {
+            parentWidget()->installEventFilter(this);
         }
         return QWebEngineView::event(event);
     }
@@ -54,8 +57,8 @@ namespace Bn
             if(eventClick->button() == Qt::MiddleButton)
             {
                 auto hit = this->page->hitTestContent(eventClick->pos());
-                auto clickedUrl = hit->getLinkUrl();
-                auto baseUrl = hit->getBaseUrl();
+                auto clickedUrl = hit->linkUrl().toString();
+                auto baseUrl = hit->baseUrl().toString();
                 if(clickedUrl != baseUrl && !(clickedUrl.isEmpty()))
                 {
                     QString result;
