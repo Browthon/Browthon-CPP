@@ -1,6 +1,7 @@
 #include "TabWidget.hpp"
 #include "WebView.hpp"
 #include "UrlInput.hpp"
+#include "../Browser.hpp"
 
 namespace Bn
 {

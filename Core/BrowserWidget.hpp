@@ -9,12 +9,13 @@ namespace Bn
     class UrlInput;
     class WebView;
     class TabWidget;
+    class MainWindow;
 
     class MainWidget : public QWidget
     {
     public:
-        QWidget* parent;
-        MainWidget(QWidget* parent);
+        MainWindow* parent;
+        MainWidget(MainWindow* parent);
         WebView* view;
         UrlInput* urlInput;
         TabWidget* tabWidget;
@@ -24,6 +25,14 @@ namespace Bn
         void setView(WebView* view);
         void showHome();
         void createTabWithUrl(QString url);
+        void openHistory();
+        void openFav();
+        void openDownload();
+        void openSession();
+        void openRaccourci();
+        void openParameters();
+        void openInfoBrowthon();
+        void openInfoQt();
     };
 }
 

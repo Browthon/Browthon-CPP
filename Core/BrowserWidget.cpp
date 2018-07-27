@@ -3,14 +3,16 @@
 #include "Widgets/WebView.hpp"
 #include "Widgets/UrlInput.hpp"
 #include "Widgets/TabWidget.hpp"
+#include "Browser.hpp"
 
 #include <QGridLayout>
 #include <QPushButton>
 #include <QWebEngineSettings>
+#include <QMenuBar>
 
 namespace Bn
 {
-    MainWidget::MainWidget(QWidget* parent = nullptr) :
+    MainWidget::MainWidget(MainWindow* parent = nullptr) :
     QWidget(parent)
     {
         this->parent = parent;
@@ -25,6 +27,17 @@ namespace Bn
         reloadButton = new QPushButton("↺", this);
         forwardButton = new QPushButton(">", this);
         auto homeButton = new QPushButton("⌂", this);
+
+        auto menuBar = this->parent->menuBar();
+        menuBar->addAction("Historique", this, &MainWidget::openHistory);
+        menuBar->addAction("Favoris", this, &MainWidget::openFav);
+        menuBar->addAction("Téléchargements", this, &MainWidget::openDownload);
+        menuBar->addAction("Sessions", this, &MainWidget::openSession);
+        menuBar->addAction("Raccourcis URL", this, &MainWidget::openRaccourci);
+        menuBar->addAction("Paramètres", this, &MainWidget::openParameters);
+        auto aboutMenu = menuBar->addMenu("A Propos");
+        aboutMenu->addAction("Browthon", this, &MainWidget::openInfoBrowthon);
+        aboutMenu->addAction("Qt", this, &MainWidget::openInfoQt);
 
         view->createConnection();
         connect(urlInput, SIGNAL(returnPressed()), urlInput, SLOT(enterUrl()));
@@ -68,4 +81,28 @@ namespace Bn
         this->tabWidget->setCurrentWidget(tab);
         this->urlInput->enterUrlGiven(url);
     }
+
+    void MainWidget::openFav()
+    {}
+
+    void MainWidget::openHistory()
+    {}
+
+    void MainWidget::openDownload()
+    {}
+
+    void MainWidget::openSession()
+    {}
+
+    void MainWidget::openRaccourci()
+    {}
+
+    void MainWidget::openParameters()
+    {}
+
+    void MainWidget::openInfoBrowthon()
+    {}
+
+    void MainWidget::openInfoQt()
+    {}
 }
