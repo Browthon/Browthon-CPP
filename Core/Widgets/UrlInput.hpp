@@ -2,7 +2,7 @@
 #define BROWTHON_APP_URLINPUT_HPP
 
 #include <QLineEdit>
-#include "BrowserWidget.hpp"
+#include "Core\BrowserWidget.hpp"
 
 namespace Bn
 {

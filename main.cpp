@@ -1,6 +1,6 @@
 #include <QApplication>
 
-#include "Browser.hpp"
+#include "Core\Browser.hpp"
 
 int main(int argc, char** argv)
 {
