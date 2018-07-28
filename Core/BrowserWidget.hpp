@@ -10,6 +10,7 @@ namespace Bn
     class WebView;
     class TabWidget;
     class MainWindow;
+    class AboutWindow;
 
     class MainWidget : public QWidget
     {
@@ -22,6 +23,10 @@ namespace Bn
         QPushButton* backButton;
         QPushButton* reloadButton;
         QPushButton* forwardButton;
+        QString versionAll;
+        QString versionMinimal;
+        AboutWindow* browthonInfo;
+        AboutWindow* qtInfo;
         void setView(WebView* view);
         void showHome();
         void createTabWithUrl(QString url);

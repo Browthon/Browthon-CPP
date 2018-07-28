@@ -4,6 +4,7 @@
 #include "Widgets/UrlInput.hpp"
 #include "Widgets/TabWidget.hpp"
 #include "Browser.hpp"
+#include "Windows/AboutWindow.hpp"
 
 #include <QGridLayout>
 #include <QPushButton>
@@ -16,6 +17,8 @@ namespace Bn
     QWidget(parent)
     {
         this->parent = parent;
+        this->versionAll = "0.0.1 : Beta";
+        this->versionMinimal = "0.0.1";
         auto layout = new QGridLayout();
 
         view = new WebView(this);
@@ -38,6 +41,9 @@ namespace Bn
         auto aboutMenu = menuBar->addMenu("A Propos");
         aboutMenu->addAction("Browthon", this, &MainWidget::openInfoBrowthon);
         aboutMenu->addAction("Qt", this, &MainWidget::openInfoQt);
+
+        this->browthonInfo = new AboutWindow(this, "Browthon");
+        this->qtInfo = new AboutWindow(this, "Qt");
 
         view->createConnection();
         connect(urlInput, SIGNAL(returnPressed()), urlInput, SLOT(enterUrl()));
@@ -101,8 +107,14 @@ namespace Bn
     {}
 
     void MainWidget::openInfoBrowthon()
-    {}
+    {
+        this->browthonInfo->setWindowModality(Qt::ApplicationModal);
+        this->browthonInfo->show();
+    }
 
     void MainWidget::openInfoQt()
-    {}
+    {
+        this->qtInfo->setWindowModality(Qt::ApplicationModal);
+        this->qtInfo->show();
+    }
 }
