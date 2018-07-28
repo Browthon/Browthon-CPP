@@ -4,3 +4,11 @@
 cmake-build-debug/
 /vs2017
 /user-config.cmake
+
+# For Visual Studio Builds // TSGeek
+.qmake.stash
+/.vs
+/GeneratedFiles
+/debug
+/release
+/x64
