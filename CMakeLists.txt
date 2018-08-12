@@ -36,6 +36,12 @@ find_package(Qt5WebEngineWidgets 5.8 REQUIRED)
 
 add_executable(browthon_app ${SOURCE_FILES} ${QRC_FILES})
 
+if(WIN32) 
+    get_target_property(QT5_QMAKE_EXECUTABLE Qt5::qmake IMPORTED_LOCATION)
+    get_filename_component(QT5_WINDEPLOYQT_EXECUTABLE ${QT5_QMAKE_EXECUTABLE} PATH)
+    set(QT5_WINDEPLOYQT_EXECUTABLE "${QT5_WINDEPLOYQT_EXECUTABLE}/windeployqt.exe")
+ endif() 
+
 # deploy on Windows 
 if(WIN32 AND CMAKE_SIZEOF_VOID_P EQUAL 8)
     add_custom_command(TARGET browthon_app POST_BUILD
