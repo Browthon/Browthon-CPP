@@ -1,2 +1,2 @@
 # Browthon-CPP
-The version of Browthon made with C++ and Qt5
+Second version of Browthon made with Qt and C++
