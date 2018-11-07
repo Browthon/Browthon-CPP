@@ -1,2 +1,2 @@
-# Browthon
-A Web Browser made with Qt and C++
+# Browthon-CPP
+The version of Browthon made with C++ and Qt5
